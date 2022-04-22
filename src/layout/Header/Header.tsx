@@ -1,14 +1,10 @@
 import React from 'react'
 import './Header.scss'
 
-function Header(props: IHeaderProps) {
-    return (
-        <h1 className='header'>Hello from header</h1>
-    )
+export default function Header() {
+  return (
+    <div className='header'>
+      Header
+    </div>
+  )
 }
-
-interface IHeaderProps {
-    //TODO
-}
-
-export default Header;
