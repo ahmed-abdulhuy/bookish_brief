@@ -1,11 +1,14 @@
 .footer {
-    padding: '0.9375rem 0';
-    text-align: 'center';
-    margin-top: 20px;
-    display: 'flex';
-    z-index: 2;
-    position: 'relative';
-  }
+  background-color: #333333;
+  color: #eeeeee;
+  padding: '0.9375rem 0';
+  text-align: 'center';
+  // margin-top: 20px;
+  // display: 'flex';
+  z-index: 2;
+  // position: 'relative';
+  height: 80px;
+}
 
   // container {
   //   padding-right: '15px';
