@@ -22,8 +22,8 @@ const fetchItems = async () => {
       {
         items.map((blog:IBlog) => (
           <div>
-            <h1>{blog.name}</h1>
-            <p>{blog.message}</p>
+            <h1>{blog.blog}</h1>
+            {/* <p>{blog.message}</p> */}
           </div>
         ))
       }
@@ -33,6 +33,6 @@ const fetchItems = async () => {
 
 
 interface IBlog {
-  "name": string
-  "message": string
+  "blog": string
+  // "message": string
 }
