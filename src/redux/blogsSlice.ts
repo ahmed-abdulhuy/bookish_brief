@@ -1,28 +1,50 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
-export interface BlogState {
-  blogs: IBlog[]
+export interface FilterState {
+  filter: string 
 }
 
-const initialState: BlogState = {
-  blogs: [{
-      id: 0,
-      blog: '',
-  }],
+const initialState: FilterState = {
+  filter: ''
 }
 
-export const blogSlice = createSlice({
-  name: 'blogs',
+// fetch function
+
+export const blogsApi = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({
+    baseUrl: '/api',
+     
+  }),
+
+  endpoints(builder) {
+    return {
+      fetchBlogs: builder.query<IBlog[], number|void>({
+        query(limit = 10){
+          return `/blogs?limit=${limit}`;
+        },
+      }),
+    };
+  },
+});
+
+
+//=============
+
+
+export const filterSlice = createSlice({
+  name: 'filter',
   initialState,
   reducers: {
     get_all: (state) => {
-      state.blogs = [{id:1, blog:'ahmed'}];
+      state.filter = '';
     },
-    filter_web_dev: (state) => {
-        state.blogs = [{id:1, blog:'Wafa'}];
+    add_filter: (state, action:string) => {
+        state.filter += ` ${action}`;
     },
   },
-})
+});
 
 
 interface IBlog {
@@ -31,6 +53,8 @@ interface IBlog {
 }
 
 // Action creators are generated for each case reducer function
-export const { get_all, filter_web_dev } = blogSlice.actions
+export const { get_all, filter_web_dev } = filterSlice.actions
 
-export default blogSlice.reducer
+export default filterSlice.reducer
+
+export const { useFetchBlogsQuery } = blogsApi;
