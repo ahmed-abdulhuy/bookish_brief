@@ -18,7 +18,6 @@ export const filterSlice = createSlice({
       state.filter = '';
     },
     add_filter: (state, action: PayloadAction<string>) => {
-      console.log('action:', action)
         state.filter += `|${action.payload}`;
     },
     remove_filter: (state, action: PayloadAction<string>) => {

@@ -1,19 +1,15 @@
 import React from 'react'
 import './Blogs.scss'
 import { RootState } from '../../redux/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFetchBlogsQuery } from '../../redux/blogsAPI';
 // import { get_all } from '../../redux/filterSlice'; 
 
 export default function Blogs() {
   
   const filter = useSelector((state: RootState) => state.filter.filter)
-  // const dispatch = useDispatch()
-  console.log('=======================')
-  console.log('filter:', filter)
-
+  
   const {data=[], isFetching} = useFetchBlogsQuery(filter);
-  console.log('data:', data)
 
   return (
     <div className='blogs'>
