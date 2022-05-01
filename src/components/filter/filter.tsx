@@ -6,20 +6,20 @@ import { add_filter, remove_filter } from '../../redux/filterSlice';
 export default function Filter(props: IProps) {
     const dispatch = useDispatch();
     
-    let [is_selected, setIs_selected] = useState(false);
+    let [isSelected, setIsSelected] = useState(false);
     const handelClick = () => {
-        if(is_selected){
+        if(isSelected){
             dispatch(remove_filter(props.filter));
-            setIs_selected(false)
+            setIsSelected(false)
         } else {
             dispatch(add_filter(props.filter));
-            setIs_selected(true)
+            setIsSelected(true)
         }
     };
     
     return (
         <button 
-        className={ is_selected? 'selected_filter': '' }
+        className={ isSelected? 'selected_filter': '' }
         onClick={handelClick} 
         
         >{ props.filter }</button>    
