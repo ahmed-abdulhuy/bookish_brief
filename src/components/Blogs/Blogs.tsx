@@ -3,7 +3,7 @@ import './Blogs.scss'
 import { RootState } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFetchBlogsQuery } from '../../redux/blogsAPI';
-import { get_all } from '../../redux/filterSlice'; 
+// import { get_all } from '../../redux/filterSlice'; 
 
 export default function Blogs() {
   
@@ -14,16 +14,6 @@ export default function Blogs() {
 
   const {data=[], isFetching} = useFetchBlogsQuery(filter);
   console.log('data:', data)
-  // const [items, setItems] = useState([]);
-  
-  // const fetchItems = async () => {
-    //     const data = await fetch('/api/blogs');
-    //     console.log(data)
-//     const items = await data.json();
-//     console.log(items)
-//     setItems(items);
-// };  
-// const blogs = data;
 
   return (
     <div className='blogs'>
@@ -36,9 +26,7 @@ export default function Blogs() {
   );
 };
 
-
 interface IBlog {
   "id": number
   "blog": string
-  // "message": string
 }
