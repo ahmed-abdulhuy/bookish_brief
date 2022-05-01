@@ -1,24 +1,19 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './Blogs.scss'
 import { RootState } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { useFetchBlogsQuery } from '../../redux/blogsSlice';
-// import { get_all } from '../../redux/blogsSlice';
- 
+import { useFetchBlogsQuery } from '../../redux/blogsAPI';
+import { get_all } from '../../redux/filterSlice'; 
 
 export default function Blogs() {
-  // const blogs = useSelector((state: RootState) => state.blogs.blogs)
-  const dispatch = useDispatch()
+  
+  const filter = useSelector((state: RootState) => state.filter.filter)
+  // const dispatch = useDispatch()
   console.log('=======================')
-  // console.log(blogs)
+  console.log('filter:', filter)
 
-  const {data=[], isFetching} = useFetchBlogsQuery();
-  
-  // useEffect( () => {
-    // dispatch(get_all());
-    // fetchItems();
-  // }, []);
-  
+  const {data=[], isFetching} = useFetchBlogsQuery(filter);
+  console.log('data:', data)
   // const [items, setItems] = useState([]);
   
   // const fetchItems = async () => {

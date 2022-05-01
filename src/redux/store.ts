@@ -1,9 +1,11 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-// import blogsReducer from './blogsSlice'
-import { blogsApi } from './blogsSlice'
+import { configureStore } from '@reduxjs/toolkit'
+import filterReducer from './filterSlice'
+import { blogsApi } from './blogsAPI'
+
+
 export const store = configureStore({
   reducer: {
-    // blogs: blogsReducer,
+    filter: filterReducer,
     [blogsApi.reducerPath]: blogsApi.reducer
   },
   middleware: (getDefaultMiddleware) => {

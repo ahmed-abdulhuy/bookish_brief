@@ -3,25 +3,18 @@ import './SideBar.scss'
 import SearchBar from '../SearchBar/SearchBar'
 import { RootState } from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-// import { filter_web_dev } from '../../redux/blogsSlice';
+import { add_filter } from '../../redux/filterSlice';
 
 export default function SideBar() {
-  // const blogs = useSelector((state: RootState) => state.blogs.blogs)
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   fetchBlogs();
-  // }, []);
-
-  // const fetchBlogs = async () => {
-  //   const data = await fetch('/api/blogs/web_dev');
-  //   const blogs = await data.json()
-    
-  // }
-  
+  const filter = useSelector((state: RootState) => state.filter.filter)
+  const dispatch = useDispatch()
+  console.log('filter:', filter)
   return (
     <div className='sidebar'>
       {/* <SearchBar /> */}
-      {/* <button onClick={() => dispatch(filter_web_dev()) }>web_dev</button> */}
+      <button onClick={() => dispatch(add_filter('web_dev')) }>web_dev</button>
+      <button onClick={() => dispatch(add_filter('ml'))}>ml</button>
+      <h1>{filter}</h1>
     </div>
   )
 }
