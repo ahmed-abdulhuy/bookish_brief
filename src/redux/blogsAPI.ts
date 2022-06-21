@@ -20,7 +20,9 @@ export const blogsApi = createApi({
 
 interface IBlog {
     id: number
-    blog:string
+    title: string
+    brief: string
+    author: string
 }
 
 export const { useFetchBlogsQuery } = blogsApi

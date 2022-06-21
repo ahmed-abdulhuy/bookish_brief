@@ -14,7 +14,7 @@ export default function Blogs() {
       {
         isFetching?<h1>loading..</h1> : 
           data.map((blog:IBlog) => (
-            <div className="card" key={blog.id}> {blog.blog} </div>
+            <div className="card" key={blog.id}> {blog.brief} </div>
           ))
       }
     </div>
@@ -23,5 +23,7 @@ export default function Blogs() {
 
 interface IBlog {
   "id": number
-  "blog": string
+  "title": string
+  "brief": string
+  "author": string
 }
