@@ -1,5 +1,6 @@
 import { useFetchBlogsQuery } from '../../redux/blogsAPI';
 import { RootState } from '../../redux/store';
+import Card from '../Card/card';
 import { useSelector } from 'react-redux';
 import React from 'react'
 import './Blogs.scss'
@@ -14,7 +15,7 @@ export default function Blogs() {
       {
         isFetching?<h1>loading..</h1> : 
           data.map((blog:IBlog) => (
-            <div className="card" key={blog.id}> {blog.brief} </div>
+            <Card {...blog}></Card>
           ))
       }
     </div>

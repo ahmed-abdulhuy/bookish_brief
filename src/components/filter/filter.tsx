@@ -19,7 +19,7 @@ export default function Filter(props: IProps) {
     
     return (
         <button 
-        className={ isSelected? 'selected_filter': '' }
+        className={`${ isSelected? 'selected_filter': '' } button`}
         onClick={handelClick} 
         
         >{ props.filter }</button>    

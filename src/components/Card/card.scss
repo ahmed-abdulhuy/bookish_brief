@@ -1,0 +1,26 @@
+.card {
+    width: 55rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: 0.5rem;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    background-color: #eeeeee;
+
+}
+
+.label {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem 0.5rem;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+span {
+    margin-right: 0.5rem;
+}
+
+p {
+    margin: 0px;
+}
