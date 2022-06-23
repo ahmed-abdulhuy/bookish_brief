@@ -2,7 +2,7 @@ import "./card.scss"
 
 export default function Card(props: IProps) {
     return (
-        <div className="card" key={props.id}>
+        <div className="card">
             <div className="label">
                 <span>title:</span><p>{props.title}</p>
             </div>
