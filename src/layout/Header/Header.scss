@@ -3,9 +3,30 @@
     color: #eeeeee;
     padding: 20px;
     // display: flex;
-    align-items: center;
-    text-align: center;
+    align-items: right;
+    text-align: right;
     // max-width: 600px;
     margin: 0 auto;
     border-bottom: 1px solid #f2f2f2;
+}
+
+.header a {
+    margin: 0 0.25rem;
+}
+
+.header a:link{
+    color: #f2f2f2;
+}
+
+.header a:visited {
+    color: #f2f2f2;
+
+}
+
+.header a:hover {
+    color: #aaaaaa;
+}
+
+.header a:active {
+    color: #aaaaaa;
 }
