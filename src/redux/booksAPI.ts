@@ -1,7 +1,7 @@
-    import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
-export const blogsApi = createApi({
+export const BooksApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: 'api',
@@ -9,20 +9,20 @@ export const blogsApi = createApi({
 
     endpoints(builder){
         return {
-            fetchBlogs: builder.query<IBlog[], string|void>({
+            fetchBooks: builder.query<IBook[], string|void>({
                 query(limit=''){
-                    return `/blogs?filter=${limit}`;
+                    return `/Books?filter=${limit}`;
                 },
             }),
         };
     },
 });
 
-interface IBlog {
+interface IBook {
     id: number
     title: string
     brief: string
     author: string
 }
 
-export const { useFetchBlogsQuery } = blogsApi
+export const { useFetchBooksQuery } = BooksApi

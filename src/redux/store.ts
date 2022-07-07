@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filterReducer from './filterSlice'
-import { blogsApi } from './blogsAPI'
+import { BooksApi } from './booksAPI'
 
 
 export const store = configureStore({
   reducer: {
     filter: filterReducer,
-    [blogsApi.reducerPath]: blogsApi.reducer
+    [BooksApi.reducerPath]: BooksApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(blogsApi.middleware);
+    return getDefaultMiddleware().concat(BooksApi.middleware);
   }
 });
 
