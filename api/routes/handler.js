@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     database: 'books_list'
 });
 
-router.get('/api/blogs', (req, res) => {
+router.get('/api/books', (req, res) => {
     let filters = req.query.filter;
     if(filters !== undefined && filters !== ''){
         filters = [...new Set(filters.split('|'))].filter(e=>e)
@@ -28,5 +28,46 @@ router.get('/api/blogs', (req, res) => {
     );
 });
 
+router.post('/addBook', (req, res) => {
+    console.log('=====req====\n');
+    console.log(req.body)
+    const {title, author, brief, selectedCatigory } = req.body 
+    const book = {title, author, brief}
+    console.log(selectedCatigory)
+    let sql = 'INSERT INTO Books SET ?'
+    
+    connection.query(sql, book, (err, result) => {
+        if(err) throw err;
+        console.log(result.insertId)
+        res.send('book is added.')
+
+        if(selectedCatigory.length !== 0) {
+            selectedCatigory.map((catigory) => {
+                sql = `INSERT INTO ${catigory} SET ?`;
+                connection.query(sql, {'book_id':result.insertId})
+            })
+        }
+    })
+
+
+
+    res.status(200)
+})
+
+router.delete('/deleteBook/:id', (req, res) => {
+    console.log('===============================req=========================');
+    console.log(req.params)
+    const book_id = req.params;
+    const sql = 'DELETE FROM Books WHERE ?'
+    connection.query(sql, book_id, (err, result) => {
+        if(err) throw err;
+
+        console.log(result);
+        res.send('book is deleted')
+
+    })
+
+    res.status(204)
+})
 
 module.exports = router;
