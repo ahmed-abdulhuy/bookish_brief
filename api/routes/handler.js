@@ -42,7 +42,7 @@ router.post('/addBook', (req, res) => {
         res.send('book is added.')
 
         if(selectedCatigory.length !== 0) {
-            selectedCatigory.map((catigory) => {
+            selectedCatigory.foreach((catigory) => {
                 sql = `INSERT INTO ${catigory} SET ?`;
                 connection.query(sql, {'book_id':result.insertId})
             })
