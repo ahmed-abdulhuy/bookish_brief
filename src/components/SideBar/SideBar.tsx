@@ -12,7 +12,6 @@ export default function SideBar() {
       {/* <SearchBar /> */}
       <Filter filter='web_dev'/>
       <Filter filter='ml' />
-      <h1>{filter}</h1>
     </div>
   )
 }

@@ -1,19 +1,29 @@
 import "./card.scss"
 
 export default function Card(props: IProps) {
+    
+    const handelDelete = (id: number) => {
+        fetch(`/deleteBook/${id}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}
+        }).then(() => setTimeout(() => window.location.reload(), 250))
+    }
+
     return (
         <div className="card">
             <div className="label">
-                <span>title:</span><p>{props.title}</p>
+                <span>Title:</span><p>{props.title}</p>
             </div>
 
             <div className="label">
-                <span>author:</span><p>{props.author}</p>
+                <span>Author:</span><p>{props.author}</p>
             </div>
             
             <div className="label">
-                <span>breif:</span><p>{props.brief}</p>
+                <span>Breif:</span><p>{props.brief}</p>
             </div>
+
+            <button onClick={()=>{handelDelete(props.id)}} className="button delete-button" >delet</button>
             
         </div>
     )

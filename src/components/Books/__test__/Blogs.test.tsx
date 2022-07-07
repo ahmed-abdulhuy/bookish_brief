@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux';
-import Blogs from '../Blogs'
+import Books from '../Books'
 import { store } from '../../../redux/store'
 
 
 const MockBlog = () => {
     return(
         <Provider store={store}>
-            <Blogs />
+            <Books />
         </Provider>
     )
 };
 
 
-it('render Blogs', async () => {
+it('render Books', async () => {
     render(
         <MockBlog />
     );

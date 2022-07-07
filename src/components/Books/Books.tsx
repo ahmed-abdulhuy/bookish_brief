@@ -1,28 +1,28 @@
-import { useFetchBlogsQuery } from '../../redux/blogsAPI';
+import { useFetchBooksQuery } from '../../redux/booksAPI';
 import { RootState } from '../../redux/store';
 import Card from '../Card/card';
 import { useSelector } from 'react-redux';
 import React from 'react'
-import './Blogs.scss'
+import './Books.scss'
 
-export default function Blogs() {
+export default function Books() {
   
   const filter = useSelector((state: RootState) => state.filter.filter)
-  const {data=[], isFetching} = useFetchBlogsQuery(filter);
+  const {data=[], isFetching} = useFetchBooksQuery(filter);
 
   return (
-    <div className='blogs'>
+    <div className='Books'>
       {
         isFetching?<h1>loading..</h1> : 
-          data.map((blog:IBlog) => (
-            <Card {...blog} key={blog.id}></Card>
+          data.map((book:IBook) => (
+            <Card {...book} key={book.id}></Card>
           ))
       }
     </div>
   );
 };
 
-interface IBlog {
+interface IBook {
   "id": number
   "title": string
   "brief": string
