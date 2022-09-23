@@ -33,16 +33,16 @@ router.post('/addBook', (req, res) => {
     console.log(req.body)
     const {title, author, brief, selectedCatigory } = req.body 
     const book = {title, author, brief}
-    console.log(selectedCatigory)
+    console.log("selected catigories", selectedCatigory)
     let sql = 'INSERT INTO Books SET ?'
     
     connection.query(sql, book, (err, result) => {
         if(err) throw err;
-        console.log(result.insertId)
+        console.log("inserted book id", result.insertId)
         res.send('book is added.')
 
         if(selectedCatigory.length !== 0) {
-            selectedCatigory.foreach((catigory) => {
+            selectedCatigory.forEach((catigory) => {
                 sql = `INSERT INTO ${catigory} SET ?`;
                 connection.query(sql, {'book_id':result.insertId})
             })
