@@ -6,7 +6,7 @@ export default function Card(props: IProps) {
         fetch(`/deleteBook/${id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
-        }).then(() => setTimeout(() => window.location.reload(), 250))
+        })//.then(() => setTimeout(() => window.location.reload(), 250))
     }
 
     return (

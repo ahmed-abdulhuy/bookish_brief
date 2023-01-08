@@ -15,8 +15,8 @@ export default function AddCard() {
     const animatedComponents = makeAnimated();
 
     const catigories = [
-        {value: 'ml', label: 'ml'},
-        {value: 'web_dev', label:'web_dev'}
+        {value: 'machine_learning', label: 'machine_learning'},
+        {value: 'frontend_catigory', label:'frontend_catigory'}
     ];
 
     const handelSubmit = (e:any) => {
@@ -35,7 +35,7 @@ export default function AddCard() {
 
     const handelCatigory = (e:any) => {
         const catigories = e.map((option:any) => option.value)
-        setSelectedCatigory(catigories)
+        setSelectedCatigory(catigories) 
     }
     
     return (

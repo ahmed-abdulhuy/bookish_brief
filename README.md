@@ -37,4 +37,19 @@ You will also see any lint errors in the console.
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Run application on test mode
+- Make sure to have a Mysql database wtih the name `books_list`
+and user `root`
+
+
+# run database server
+### On terminal
+```bash
+  docker compose up
+  docker exec -it bookish_brief-postgres-1 su root
+  createdb bookishdb 
+  psql bookishdb
+```
+```bash
+  npx db-migrate up
+```

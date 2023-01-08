@@ -11,7 +11,7 @@ export const BooksApi = createApi({
         return {
             fetchBooks: builder.query<IBook[], string|void>({
                 query(limit=''){
-                    return `/Books?filter=${limit}`;
+                    return `/books?filter=${limit}`;
                 },
             }),
         };

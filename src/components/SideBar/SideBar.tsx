@@ -10,8 +10,8 @@ export default function SideBar() {
   return (
     <div className='sidebar'>
       {/* <SearchBar /> */}
-      <Filter filter='web_dev'/>
-      <Filter filter='ml' />
+      <Filter filter='frontend_catigory'/>
+      <Filter filter='machine_learning' />
     </div>
   )
 }

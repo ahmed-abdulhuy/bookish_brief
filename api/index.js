@@ -1,7 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const routesHandler = require('./routes/handler');
-const cors = require("cors")
+import express from 'express';
+import bodyParser from 'body-parser';
+// import routesHandler from './handlers/handler';
+import book_routes from './handler.js';
+import cors from "cors"
+
 const app = express();
 
 app.use(
@@ -11,9 +13,12 @@ app.use(
 )
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-app.use('/', routesHandler);
+// app.use('/', routesHandler);
+// routesHandler(app)
+book_routes(app)
 
-const PORT = 4000; // backend routing port
+
+const PORT = 5000; // backend routing port
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
