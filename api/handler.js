@@ -24,8 +24,8 @@ export default function book_routes (router) {
     router.post('/api/addBook', async (req, res) => {
     try {
     
-        const {title, author, brief, selectedCatigory } = req.body 
-        const book = [title, author, brief]
+        const {title, author, breif, selectedCatigory } = req.body 
+        const book = [title, author, breif]
         const conn = await Client.connect();
         let sql = 'INSERT INTO books (title, author, breif) VALUES ($1, $2, $3) RETURNING *'
         

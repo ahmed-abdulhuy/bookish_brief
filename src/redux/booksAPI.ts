@@ -21,7 +21,7 @@ export const BooksApi = createApi({
 interface IBook {
     id: number
     title: string
-    brief: string
+    breif: string
     author: string
 }
 

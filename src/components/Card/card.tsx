@@ -20,7 +20,7 @@ export default function Card(props: IProps) {
             </div>
             
             <div className="label">
-                <span>Breif:</span><p>{props.brief}</p>
+                <span>Breif:</span><p>{props.breif}</p>
             </div>
 
             <button onClick={()=>{handelDelete(props.id)}} className="button delete-button" >delet</button>
@@ -33,5 +33,5 @@ interface IProps {
     id: number
     title: string
     author: string
-    brief: string
+    breif: string
 }

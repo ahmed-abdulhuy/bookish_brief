@@ -8,7 +8,7 @@ export default function AddCard() {
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [brief, setBrief] = useState('');
+    const [breif, setbreif] = useState('');
     const [selectedCatigory, setSelectedCatigory] = useState('');
     const navigate = useNavigate()
 
@@ -21,7 +21,7 @@ export default function AddCard() {
 
     const handelSubmit = (e:any) => {
         e.preventDefault();
-        const card = {title, author, brief, selectedCatigory};
+        const card = {title, author, breif, selectedCatigory};
 
         fetch('/addBook', {
             method: 'POST',
@@ -63,14 +63,14 @@ export default function AddCard() {
                         onChange={e => setAuthor(e.target.value)}
                     />
                 
-                    {/* <label htmlFor="brief">Brief</label> */}
+                    {/* <label htmlFor="breif">breif</label> */}
                     <textarea  
-                        id='brief' 
-                        value={brief}
+                        id='breif' 
+                        value={breif}
                         required
                         className='text-area'
-                        placeholder='brief...'
-                        onChange={e => setBrief(e.target.value)}
+                        placeholder='breif...'
+                        onChange={e => setbreif(e.target.value)}
                     />
 
                 <Select 

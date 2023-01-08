@@ -46,7 +46,7 @@ and user `root`
 ### On terminal
 ```bash
   docker compose up
-  docker exec -it bookish_brief-postgres-1 su root
+  docker exec -it bookish_breif-postgres-1 su root
   createdb bookishdb 
   psql bookishdb
 ```
