@@ -22,11 +22,9 @@ export default function AddCard() {
     const handelSubmit = (e:any) => {
         e.preventDefault();
         const card = {title, author, breif, selectedCatigory};
-
-        fetch('/addBook', {
+        fetch('api/addBook', {
             method: 'POST',
-            headers: {"Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "*"},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(card)
         }).then(()=>window.location.reload())
 

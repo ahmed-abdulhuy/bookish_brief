@@ -3,10 +3,10 @@ import "./card.scss"
 export default function Card(props: IProps) {
     
     const handelDelete = (id: number) => {
-        fetch(`/deleteBook/${id}`, {
+        fetch(`api/deleteBook/${id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
-        })//.then(() => setTimeout(() => window.location.reload(), 250))
+        }).then(() => setTimeout(() => window.location.reload(), 250))
     }
 
     return (
